@@ -1,4 +1,4 @@
-# 🛩️ UAV Simulation & Path Planning
+# 🛩️ UTM Simulation & Path Planning
 
 A full-stack *UAV (Drone) simulation system* that models UAV movement on a real or grid-based map, plans optimal paths, and streams real-time flight steps to a frontend dashboard. Built with *Python, Node.js, Express, MongoDB, and React*, this project replicates key features of UAV path planning including *simulation, real-time updates, and visualization*.
 
@@ -6,11 +6,9 @@ A full-stack *UAV (Drone) simulation system* that models UAV movement on a real 
 
 ## 📸 Demo
 
-![Simulation](https://user-images.githubusercontent.com/placeholder/simulation-demo.png)
+<img width="1919" height="1079" alt="Image" src="https://github.com/user-attachments/assets/94360900-d9d0-4c0c-aa6f-df6104e6b12d" />
 
-<img width="1900" alt="Simulation Map" src="https://user-images.githubusercontent.com/placeholder/map-demo.png" />
-
-<img width="1900" alt="Frontend View" src="https://user-images.githubusercontent.com/placeholder/frontend-demo.png" />
+<img src="https://github.com/user-attachments/assets/2b859f49-e100-49c8-9bd1-f796dee57d90" width="1919" height="1079">
 
 ---
 
