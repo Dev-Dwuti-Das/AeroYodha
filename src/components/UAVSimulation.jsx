@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Controls from "./controls/Controls";
 import BasicMap from "./map/UAVMap";
 
-const STEP_INTERVAL_MS = 350;
+const STEP_INTERVAL_MS = 700;
 
 export default function UAVSimulation() {
   const [running, setRunning] = useState(false);
@@ -12,8 +12,8 @@ export default function UAVSimulation() {
   const [noFlyZones, setNoFlyZones] = useState([]);
   const [steps, setSteps] = useState([]);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [city, setCity] = useState("");
-  const [mapCenter, setMapCenter] = useState([20.5937, 78.9629]);
+  const [city, setCity] = useState("Delhi");
+  const [mapCenter, setMapCenter] = useState([28.6139, 77.209]);
 
   const currentSnapshot = steps[currentStepIndex] ?? null;
 

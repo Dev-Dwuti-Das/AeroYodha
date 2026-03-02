@@ -18,6 +18,27 @@
   overflow: hidden;
 }
 
+.controls-panel {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls-stack {
+  width: 100%;
+}
+
+.controls-logo-main {
+  height: 100px;
+  width: min(100%, 300px);
+  object-fit: contain;
+}
+
 /* =========================
    Logo
 ========================= */
@@ -205,6 +226,7 @@
    Upperbox / Shadow panels
 ========================= */
 .upperbox {
+  width: 100%;
   border-width: 1px;
   border-style: solid;
   border-radius: 40px;
@@ -218,6 +240,11 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.controls-actions {
+  gap: 28px;
+  align-items: center;
 }
 
 .upperbox:hover {
@@ -274,4 +301,3 @@
   -webkit-backdrop-filter: blur(6px);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-

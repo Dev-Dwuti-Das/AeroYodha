@@ -51,18 +51,10 @@ const Controls = ({
   };
 
   return (
-    <div
-      style={{
-        padding: 12,
-        display: "flex",
-        gap: 12,
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <div className="row">
-        <div className="col d-flex justify-content-center">
-          <img src={logo} alt="Logo" style={{ height: 100, width: 300 }} />
+    <div className="controls-panel">
+      <div className="controls-stack">
+        <div className="d-flex justify-content-center">
+          <img src={logo} alt="Logo" className="controls-logo-main" />
         </div>
 
         <div className="d-flex justify-content-center align-items-center mt-3" style={{ gap: 10 }}>
@@ -95,7 +87,7 @@ const Controls = ({
         </div>
 
         <div className="upperbox">
-          <div className="col d-flex justify-content-center mt-3 pb-2">
+          <div className="d-flex justify-content-center mt-3 pb-2 controls-actions">
             <button
               className="str-btn rounded-pill"
               onClick={() => {
@@ -110,7 +102,7 @@ const Controls = ({
               {loading ? "Simulating..." : running ? "Pause" : "Start"}
             </button>
             <button
-              className="end-btn rounded-pill ms-5"
+              className="end-btn rounded-pill"
               onClick={() => {
                 stop();
                 setElapsedTime(0);

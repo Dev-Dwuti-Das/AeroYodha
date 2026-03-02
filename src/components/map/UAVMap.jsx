@@ -6,7 +6,7 @@ import herodrone from "../../assets/hero-drone.png";
 import otherdrone from "../../assets/hero-drone-red.png";
 
 const MATRIX_SIZE = 80;
-const DRIFT_DURATION = 320;
+const DRIFT_DURATION = 680;
 
 function matrixToCityCoords(row, col, center = [28.6139, 77.209], matrixSize = MATRIX_SIZE) {
   const [baseLat, baseLon] = center;
@@ -78,7 +78,7 @@ function UAVMarker({ uav, index, center }) {
 }
 
 export default function BasicMap({ uavs, noFlyZones = [], city, mapCenter, trails = {} }) {
-  const [center, setCenter] = useState(mapCenter || [28.6133825, 77.21849369]);
+  const [center, setCenter] = useState(mapCenter || [28.6139, 77.209]);
 
   useEffect(() => {
     if (!mapCenter) return;
