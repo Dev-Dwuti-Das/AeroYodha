@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo.png";
 import "./Controls.css";
 
@@ -7,14 +7,17 @@ const Controls = ({
   setRunning,
   stop,
   uavs,
-  handleAddUavs,
+  refreshData,
   handleLocationSearch,
+  handleStart,
+  loading,
+  uavCount,
+  setUavCount,
 }) => {
   const [location, setLocation] = useState("");
   const [elapsedTime, setElapsedTime] = useState(0);
   const [sessions, setSessions] = useState(0);
 
-  // Timer logic
   useEffect(() => {
     let timer;
     if (running) {
@@ -25,11 +28,8 @@ const Controls = ({
     return () => clearInterval(timer);
   }, [running]);
 
-  // Handle session increment when simulation starts
   useEffect(() => {
-    if (running) {
-      setSessions((prev) => prev + 1);
-    }
+    if (running) setSessions((prev) => prev + 1);
   }, [running]);
 
   const handleSearch = () => {
@@ -39,7 +39,6 @@ const Controls = ({
     }
   };
 
-  // Format elapsed time (hh:mm:ss)
   const formatTime = (seconds) => {
     const h = Math.floor(seconds / 3600)
       .toString()
@@ -61,16 +60,12 @@ const Controls = ({
         flexDirection: "column",
       }}
     >
-      {/* Title */}
       <div className="row">
         <div className="col d-flex justify-content-center">
           <img src={logo} alt="Logo" style={{ height: 100, width: 300 }} />
         </div>
 
-        <div
-          className="d-flex justify-content-center align-items-center mt-3"
-          style={{ gap: 10 }}
-        >
+        <div className="d-flex justify-content-center align-items-center mt-3" style={{ gap: 10 }}>
           <input
             type="text"
             value={location}
@@ -86,13 +81,33 @@ const Controls = ({
           </button>
         </div>
 
+        <div className="mt-3 d-flex justify-content-center">
+          <label className="text-white me-2 mt-2">UAVs</label>
+          <input
+            type="number"
+            min={1}
+            max={20}
+            value={uavCount}
+            onChange={(e) => setUavCount(Number(e.target.value) || 1)}
+            className="controls-input"
+            style={{ width: 110 }}
+          />
+        </div>
+
         <div className="upperbox">
           <div className="col d-flex justify-content-center mt-3 pb-2">
             <button
               className="str-btn rounded-pill"
-              onClick={() => setRunning((r) => !r)}
+              onClick={() => {
+                if (running) {
+                  setRunning(false);
+                  return;
+                }
+                handleStart();
+              }}
+              disabled={loading}
             >
-              {running ? "Pause" : "Start"}
+              {loading ? "Simulating..." : running ? "Pause" : "Start"}
             </button>
             <button
               className="end-btn rounded-pill ms-5"
@@ -107,15 +122,10 @@ const Controls = ({
         </div>
       </div>
 
-      {/* Refresh */}
-      <button
-        className="refresh mt-2"
-        onClick={() => window.location.reload()}
-      >
-        Refresh Site
+      <button className="refresh mt-2" onClick={refreshData} disabled={loading}>
+        {loading ? "Working..." : "Regenerate Simulation"}
       </button>
 
-      {/* Status Section */}
       <div
         className="text-white opacity-75"
         style={{
@@ -134,10 +144,7 @@ const Controls = ({
         </div>
       </div>
 
-      {/* Timer Display */}
-      <div className="text-white timebox opacity-75">
-        {/* your content here */}⏱ Time Elapsed: {formatTime(elapsedTime)}
-      </div>
+      <div className="text-white timebox opacity-75">Time Elapsed: {formatTime(elapsedTime)}</div>
     </div>
   );
 };

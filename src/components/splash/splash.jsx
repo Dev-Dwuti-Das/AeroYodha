@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/Logo.png";
-import "./Splash.css";
+import "./splash.css";
 
 export default function Splash({ onFinish }) {
   const [fadeOut, setFadeOut] = useState(false);

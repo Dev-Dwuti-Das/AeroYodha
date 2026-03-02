@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "aeroyodha",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,8 +14,7 @@
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0",
-    "react-leaflet-drift-marker": "^4.0.0",
-    "socket.io-client": "^4.8.1"
+    "react-leaflet-drift-marker": "^4.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
