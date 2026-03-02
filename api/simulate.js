@@ -18,7 +18,7 @@ export default function handler(req, res) {
     const { steps, meta } = runSimulation({
       rows: 80,
       cols: 80,
-      numUavs: Number.isFinite(numUavs) ? Math.max(1, Math.min(numUavs, 20)) : 7,
+      numUavs: Number.isFinite(numUavs) ? Math.max(1, Math.min(numUavs, 50)) : 7,
       maxSteps: Number.isFinite(maxSteps) ? Math.max(10, Math.min(maxSteps, 120)) : 80,
       seed: Number.isFinite(seed) ? seed : Date.now(),
       noFlyRatio: Number.isFinite(noFlyRatio) ? Math.max(0, Math.min(noFlyRatio, 0.1)) : 0.02,

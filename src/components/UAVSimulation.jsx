@@ -8,7 +8,7 @@ export default function UAVSimulation() {
   const [running, setRunning] = useState(false);
   const [loading, setLoading] = useState(false);
   const [uavs, setUavs] = useState([]);
-  const [uavCount, setUavCount] = useState(7);
+  const [uavCount, setUavCount] = useState(4);
   const [noFlyZones, setNoFlyZones] = useState([]);
   const [steps, setSteps] = useState([]);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -143,6 +143,11 @@ export default function UAVSimulation() {
       console.error("Error finding location", error);
     }
   };
+
+  useEffect(() => {
+    runSimulation(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="container-fluid p-0" style={{ height: "100vh" }}>

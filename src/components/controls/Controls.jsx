@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 import logo from "../../assets/Logo.png";
 import "./Controls.css";
 
@@ -37,6 +38,27 @@ const Controls = ({
       handleLocationSearch(location.trim());
       setLocation("");
     }
+  };
+
+  const handleUavCountChange = (event) => {
+    const value = Number(event.target.value);
+    if (!Number.isFinite(value)) {
+      setUavCount(1);
+      return;
+    }
+
+    if (value > 50) {
+      toast.error("Maximum 50 drones allowed");
+      setUavCount(50);
+      return;
+    }
+
+    if (value < 1) {
+      setUavCount(1);
+      return;
+    }
+
+    setUavCount(value);
   };
 
   const formatTime = (seconds) => {
@@ -78,9 +100,9 @@ const Controls = ({
           <input
             type="number"
             min={1}
-            max={20}
+            max={50}
             value={uavCount}
-            onChange={(e) => setUavCount(Number(e.target.value) || 1)}
+            onChange={handleUavCountChange}
             className="controls-input"
             style={{ width: 110 }}
           />

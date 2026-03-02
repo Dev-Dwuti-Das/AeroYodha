@@ -3,6 +3,7 @@ import './index.css';
 import 'leaflet/dist/leaflet.css';
 import UAVsimulation from './components/UAVSimulation';
 import Splash from "./components/splash/splash";
+import { Toaster } from "sonner";
 
 function App() {
   const [showSplash, setShowSplash] = useState(() => {
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <Toaster position="top-right" richColors />
       {showSplash ? <Splash onFinish={() => setShowSplash(false)} /> : <UAVsimulation />}
     </>
   );
