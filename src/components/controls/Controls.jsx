@@ -47,9 +47,9 @@ const Controls = ({
       return;
     }
 
-    if (value > 50) {
-      toast.error("Maximum 50 drones allowed");
-      setUavCount(50);
+    if (value > 100) {
+      toast.error("Maximum 100 drones allowed");
+      setUavCount(100);
       return;
     }
 
@@ -100,7 +100,7 @@ const Controls = ({
           <input
             type="number"
             min={1}
-            max={50}
+            max={100}
             value={uavCount}
             onChange={handleUavCountChange}
             className="controls-input"
